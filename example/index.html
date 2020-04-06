@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../emoji.css" type="text/css" />
+</head>
+<body>
+
+<div id="root">
+  <ul id="emojiList">
+
+  </ul>
+</div>
+
+<script>
+	const emojiListDom = document.getElementById("emojiList");
+	const emojiListNumber = 877;
+	for (let emojiIndex = 0; emojiIndex < emojiListNumber; emojiIndex++ ) {
+		emojiListDom.innerHTML += `
+	    <li class="emoji" data-index="${emojiIndex}" id="e_${emojiIndex}"></li>
+	  `
+	}
+</script>
+</body>
+</html>

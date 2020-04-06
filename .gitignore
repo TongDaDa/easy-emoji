@@ -1,0 +1,34 @@
+# Mac OS
+.DS_Store
+.dmg
+# NPM
+# /node_modules
+node_modules
+npm-*
+
+# Testing
+/.nyc_output
+/coverage
+
+# Build
+/mas
+/build
+packages/crust/build
+/app/node_modules/
+catch_resources
+cache
+/dist
+/config
+logs
+log
+/.opt-in
+/核桃编程*
+
+# generated translation files
+/translations
+/locale
+
+!/packages/scratch-sdk-xp/src/node_modules
+
+.idea
+package-lock.json
