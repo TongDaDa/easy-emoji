@@ -1,9 +1,7 @@
 ## Overview
 
 Exactly as this project's name, easy-emoji provide some solutions which displaying a emoji on old system or 
-browser, and it is easy to integrate it to your project.
-
-If you have curiosities for the problems that some older system or browser cannot display certain emoji, you could read 
+browser, and it is easy to integrate it to your project. If you have curiosities for the problems that some older system or browser cannot display certain emoji, you could read 
 the [blog](https://tongdada.github.io/2020/04/01/all-about-emoji/) named `All about emoji` by me.
 
 ## Usage
@@ -12,9 +10,12 @@ Firstly, ensure that you already installed it on your project, otherwise use the
 
 `npm i easy-emoji -S`
 
+I classify these solutions into three modes which named `Image mode`, `SVG mode`, and `Font mode`, 
+you could use one you preferred, 
+
 ### Image Mode
 
-#### load ALl
+#### Load all
 ```jsx harmony
 import easyEmoji from "easy-emoji";
 const imgMode = easyEmoji("img");
@@ -35,9 +36,9 @@ function renderEmojiList() {
 }
 ```
 
-For above example, apparently we only need the emojiData to map its styles to the element, yeah, it's enough for some 
-simple situations, actually it load a **sprites** which including 877 emojis and the size is about 800+kb and 2.4MB
-corresponding to `1x.png` and `2x.png`.
+For above example, apparently we only need the **emojiData to map its styles to the element**, yeah, it's enough for some 
+simple situations, actually it load a **sprites** which including `877 emojis` and the size is about **800+kb and 2.4MB
+corresponding to `1x.png` and `2x.png`**.
 
 #### Load one or a specific list
 
