@@ -1,35 +1,11 @@
 # Mac OS
 .DS_Store
 .dmg
+__test__
 # NPM
 # /node_modules
 node_modules
 npm-*
-
-# Testing
-/.nyc_output
-/coverage
-
-# Build
-/mas
-/build
-packages/crust/build
-/app/node_modules/
-catch_resources
-cache
-/dist
-/config
-logs
-log
-/.opt-in
-/核桃编程*
-__test__
-
-# generated translation files
-/translations
-/locale
-
-!/packages/scratch-sdk-xp/src/node_modules
-
+dev
 .idea
-package-lock.json
+dist
