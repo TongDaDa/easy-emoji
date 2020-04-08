@@ -23,6 +23,7 @@ logs
 log
 /.opt-in
 /核桃编程*
+__test__
 
 # generated translation files
 /translations

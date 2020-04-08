@@ -1,5 +1,11 @@
-import imgData from "./modes/img/index";
-// import {  } from "./utils"
+import useImgMode from "./modes/img/index";
+import useFontMode from "./modes/font/index";
 
+function easyEmoji(mode) {
+    switch (mode) {
+        case "img": return useImgMode();
+        case "font": return useFontMode();
+    }
+}
 
-export const imgMode = imgData;
+export default easyEmoji;

@@ -1,0 +1,6 @@
+./dev
+./__test__
+./example
+./src
+.gitignore
+./rollup.config
