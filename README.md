@@ -11,7 +11,9 @@ the [blog](https://tongdada.github.io/2020/04/01/all-about-emoji/) named `All ab
 
 Firstly, ensure that you already installed it on your project, otherwise use the command in your project. 💪
 
-`npm i easy-emoji -S`
+```bash
+npm i easy-emoji -S
+```
 
 I classify these solutions into three modes which named `Image mode`, `SVG mode`, and `Font mode`, 
 you could use one you preferred.
