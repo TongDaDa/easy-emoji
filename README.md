@@ -47,13 +47,13 @@ corresponding to `1x.png` and `2x.png`**.
 
 😺So,if you do not need such much of emojis, you can provide a list indicating what emojis you want to use, in this case, 
 easy does `not load the sprites`, it will load one by one for the list you provided. This is a example for the 
-situation.
+situation. 
 
 ```jsx harmony
 import easyEmoji from "easy-emoji";
 const imgMode = easyEmoji("img");
 const { getEmojiData } = imgMode;
-const emojiList = getEmojiData(3, 5); // or getEmojiData([3,4,5]);
+const emojiList = getEmojiData(3/*start index*/, 5/*end index*/); // or getEmojiData([3,4,5]);
 // ... Ignoring render process that rendering the emojiList data, the behavior as same as above example.
 ```
 
