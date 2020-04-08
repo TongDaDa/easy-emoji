@@ -41,7 +41,7 @@ function renderEmojiList() {
 }
 ```
 
-😄，For above example, apparently we only need the **emojiData to map its styles to the element**, yeah, it's enough for some 
+😄For above example, apparently we only need the **emojiData to map its styles to the element**, yeah, it's enough for some 
 simple situations, actually it load a **sprites** which including `877 emojis` and the size is about **800+kb and 2.4MB
 corresponding to `1x.png` and `2x.png`**.
 
