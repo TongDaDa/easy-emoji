@@ -2,9 +2,9 @@ const { join } = require("path");
 import { uglify } from "rollup-plugin-uglify";
 import path from "path";
 import jsonParser from "rollup-plugin-json";
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
+import commonjs from 'rollup-plugin-commonjs';
 // import css from 'rollup-plugin-css-only';
-
 const rollupTypescript = require('@rollup/plugin-typescript');
 
 export default {
