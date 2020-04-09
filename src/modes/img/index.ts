@@ -1,5 +1,7 @@
 import { ImageEmojiDataItem, useImgEmojiInterfaces } from "../../interfaces";
 import { error } from "../../utils";
+const emojiJson: Array<ImageEmojiDataItem> = require(`../../assets/img/emoji.json`);
+require(`../../assets/img/emoji.css`);
 
 const defaultOptions: useImgEmojiInterfaces = {
     isLoadEmojiData:false,
@@ -11,15 +13,19 @@ interface empetyEmojiDataItem {
     id: number
 }
 
-export default function useImgMode() {
-    let emojiJson: Array<ImageEmojiDataItem | empetyEmojiDataItem> = new Array(877).fill({ id: 0 }).map((i, index) => ({ id: index }));
-    require(`../../assets/img/emoji.css`);
+const matchingSymbleEXP = /(?<=\[)(\w+)(?=\])/g;
+
+function useImgMode() {
+
     const imgModeInterfaces = {
         emojiData: emojiJson,
-        findImgByName,
+        matchingSymbleEXP,
         findPositionByName,
         getEmojiData,
-        useSprites: true
+        getIdByName,
+        getHTMLTextNodes,
+        getCodeByName,
+        matchEmojiIndexFromCode
     };
 
     /**
@@ -41,17 +47,60 @@ export default function useImgMode() {
     }
 
     /**
-     * @param
-     * imgName
-     * @return base64
+     * @description
+     * @param name
      */
-    function findImgByName(imgName: string) {
-        if (!imgName) {
-            error("Cannot get the imgName in findImgByName, please ensure that you passed a correct param");
-            return null
+    function getCodeByName(name: string) {
+        return `[${name}]`
+    }
+
+    /**
+     * @description
+     * @param messageText
+     */
+    function getHTMLTextNodes(messageText: string) {
+        const htmlTextNodes = [];
+        let preMatchedIndex = 0;
+        // @ts-ignore
+        messageText.replace(matchingSymbleEXP, function (matStr, p1, offset) {
+            const emojiId = getIdByName(matStr);
+            const originalWrapperMatStr = `[${matStr}]`;
+            const slicedStr = messageText.slice(preMatchedIndex, offset - 1);
+            if (!slicedStr) {
+                htmlTextNodes.push(emojiId || originalWrapperMatStr)
+            } else {
+                htmlTextNodes.push(slicedStr, emojiId || originalWrapperMatStr);
+            }
+            preMatchedIndex = offset + matStr.length + 1;
+        });
+        if (preMatchedIndex !== messageText.length) {
+            htmlTextNodes.push(messageText.slice(preMatchedIndex))
         }
-        const img = require(`../../assets/img/imgs/${imgName}.png`);
-        return img;
+        return htmlTextNodes.map((value) => {
+            const isString = typeof value === 'string';
+            return {
+                text: isString ? value : null,
+                cssId: !isString ? `e_${value}` : null
+            }
+        });
+    }
+
+    function matchEmojiIndexFromCode(strIncludingEmojiCode: string) {
+        return strIncludingEmojiCode.match(matchingSymbleEXP);
+    }
+
+    /**
+     * @description
+     * @param name
+     */
+    function getIdByName(name: string){
+        const foundEmoji = emojiJson.find((emojiData: ImageEmojiDataItem) => {
+            return emojiData.name === name;
+        });
+        if (foundEmoji) {
+            return foundEmoji.id;
+        }
+        return null;
     }
 
     /**
@@ -68,6 +117,7 @@ export default function useImgMode() {
         const emojiItemIndex = emojiItem.id;
         return [emojiItemIndex * 64, 0];
     }
-
     return imgModeInterfaces;
 }
+
+export default useImgMode();

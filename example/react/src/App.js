@@ -1,8 +1,16 @@
 import React from 'react';
 import './App.css';
-import easyEmoji from "easy-emoji";
+import { emojiData, getIdByName, getHTMLTextNodes } from "easy-emoji";
 
-const { emojiData } = easyEmoji();
+console.log(emojiData, getIdByName, getHTMLTextNodes, "getIdByName");
+
+console.log(getIdByName("cyclone"));
+
+
+const htmlNodes = getHTMLTextNodes("asdads[][][][smie][]2342342[crescent_moon]asdasdasd[smirk]ppp[smirk][]");
+
+console.log(htmlNodes);
+
 
 function App() {
   return (

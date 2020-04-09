@@ -1,3 +1,3 @@
-import useImgMode from "./modes/img/index";
+import imgInterfaces from "./modes/img/index";
 
-export default useImgMode;
+export default imgInterfaces;

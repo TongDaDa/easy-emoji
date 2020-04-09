@@ -1,6 +1,12 @@
 ./dev
 ./__test__
 ./example
-./src
+/src/*
+tsconfig.json
+rollup.config
 .gitignore
+example
 ./rollup.config
+
+
+/dist/assets/img/imgs/*
