@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import { emojiData, getIdByName, getHTMLTextNodes } from "easy-emoji";
+import { emojiData, getIdByName, getHTMLTextNodes, findPositionByName, matchEmojiIndexFromCode} from "easy-emoji";
 
-console.log(emojiData, getIdByName, getHTMLTextNodes, "getIdByName");
+console.log(emojiData, getIdByName, findPositionByName, getHTMLTextNodes, "getIdByName");
 
 console.log(getIdByName("cyclone"));
 
-const htmlNodes = getHTMLTextNodes("asdads[][][][smie][]2342342[crescent_moon]asdasdasd[smirk]ppp[smirk][]");
+console.log(matchEmojiIndexFromCode("555[smile]fff[crescent_moon]"), "matchEmojiIndexFromCode");
+
+console.log(findPositionByName("smile"), "findPositionByName");
+
+const htmlNodes = getHTMLTextNodes("Wow, [smile][[crescent_moon]I like[smirk][smirk] easy emoji");
+console.log(htmlNodes, "htmlNodes");
 
 function App() {
   const [pickUpVisible, setPickUpVisible] = useState();

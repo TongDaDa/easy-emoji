@@ -115,7 +115,7 @@ function useImgMode() {
             return;
         }
         const emojiItemIndex = emojiItem.id;
-        return [emojiItemIndex * 64, 0];
+        return [-(emojiItemIndex * 32 + 5), 0];
     }
     return imgModeInterfaces;
 }
